@@ -1,6 +1,6 @@
 ##Definir as varíaveis
 ## id, nome, quantidade, localização 
-produto = [
+produtos = [
     [1, "Pão de forma", 5, "Prateleira 01"],
     [2, "Bolacha", 4, "Prateleira 02"],
     [3, "Macarrão", 3, "Prateleira 03"]
@@ -19,20 +19,31 @@ def registrarProdutos():
     quantidade = input("Digite  a quantidade: ")
     localizacao = input("Digite a localização: ")
     
-    produto.append([proximoId, novoProduto, quantidade, localizacao])
+    produtos.append([proximoId, novoProduto, quantidade, localizacao])
     proximoId = proximoId + 1
-    print("Produto inserido com sucesso!")
+    print("Produto inserido com sucesso!✔️")
 
 
 def listarProdutos():
     ##Lista os produtos registrados
     print("\n----- PRODUTOS LISTADOS -----")
     #print(f"Produtos disponíveis: {produto}")
-    for item in produto: ##Para cada item, ele mostra no formato abaixo e soma no total
+    for item in produtos: ##Para cada item, ele mostra no formato abaixo e soma no total
         print(f"ID: {item[0]} | {item[1]} | {item[2]} | {item[3]}")
     print("--------------------------------")
 
-
+def buscarProduto():
+    valorProcurado = int(input("Digite o ID do item: "))
+    posicaoProcurada = -1
+    
+    for i in range(len(produtos)):
+        if (produtos[i][0] == valorProcurado):
+            posicaoProcurada = i
+    if (posicaoProcurada == -1):
+        print("Produto não encontrado.")
+    else:
+        print(f"O produto é {produtos[posicaoProcurada]}")
+        
     
 ##Criar um menu
 
@@ -44,7 +55,8 @@ while True: ##Esse loop roda para sempre!
         registrarProdutos()
     elif (opcao == "2"):
         listarProdutos()
-    #elif (opcao == "3"):
+    elif (opcao == "3"):
+        buscarProduto()
 
 
 
