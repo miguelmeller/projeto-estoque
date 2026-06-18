@@ -58,20 +58,35 @@ def atualizarEstoque():
     print(f"Produto atualizado {produtos[posicaoProcurada]}")
     novaQuantidade= int(input(f"Qual a nova quantidade do produto?: "))
     produtos[posicaoProcurada][2] = novaQuantidade ## Muda a quantidade do produto desejado
-    print("Nova quantidade atualizada com sucesso!")
+    print("Quantidade atualizada!✔️")
     print(f"{produtos[posicaoProcurada]}")
     
     travarMenu()
 
+def excluirProduto():
+    itemProcurado = int(input("Digite o ID do item para excluir: "))
+    linhaProcurada = -1
+
+
+    for i in range(len(produtos)): ##Varre linha a linha da matriz
+        if (produtos [i][0] == itemProcurado): ##Verifica se a posição do nome é igual ao nome procurado
+            linhaProcurada = i
+    print(f"O item procurado está na linha {linhaProcurada}")
+
+    print("\nItem selecionado excluido.✔️ ")
+    produtos.pop(linhaProcurada)
+    
+    
 ##Criar uma função para pausar o código entre as interações do usuario
 def travarMenu():
 
     input("\nPressione <ENTER> para continuar...")
+
 ##Criar um menu
 
 while True: ##Esse loop roda para sempre!
     print("\nPor favor selecione uma opção: ")
-    print("\n1- Novo produto | 2- Listar produtos | 3- Buscar por ID | 4- Atualizar estoque | 5- Sair")
+    print("\n1- Novo produto | 2- Listar produtos | 3- Buscar por ID | 4- Atualizar estoque | 5- Excluir Produto")
     opcao = input("Escolha: ")
     if (opcao == "1"):
         registrarProdutos()
@@ -81,7 +96,9 @@ while True: ##Esse loop roda para sempre!
         buscarProduto()
     elif (opcao == "4"):
         atualizarEstoque()
-
+    elif(opcao == "5"):
+        excluirProduto()
+  
 
 
 
