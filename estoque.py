@@ -27,12 +27,12 @@ def registrarProdutos():
 def listarProdutos():
     ##Lista os produtos registrados
     print("\n----- PRODUTOS LISTADOS -----")
-    #print(f"Produtos disponíveis: {produto}")
     for item in produtos: ##Para cada item, ele mostra no formato abaixo e soma no total
         print(f"ID: {item[0]} | {item[1]} | {item[2]} | {item[3]}")
     print("--------------------------------")
 
 def buscarProduto():
+    ##Busca produtos por ID
     valorProcurado = int(input("Digite o ID do item: "))
     posicaoProcurada = -1
     
@@ -44,6 +44,18 @@ def buscarProduto():
     else:
         print(f"O produto é {produtos[posicaoProcurada]}")
         
+def atualizarEstoque():
+    idProduto = int(input("Digite o ID do produto: "))
+    posicaoProcurada = -1
+    for i in range(len(produtos)):
+        if(produtos[i][0] == idProduto):
+            posicaoProcurada = i
+
+    print(f"Produto atualizado {produtos[posicaoProcurada]}")
+    novaQuantidade= int(input(f"Qual a nova quantidade do produto?: "))
+    produtos[posicaoProcurada][2] = novaQuantidade ## Muda a quantidade do produto desejado
+    print("Nova quantidade atualizada com sucesso!")
+    print(f"{produtos[posicaoProcurada]}")
     
 ##Criar um menu
 
@@ -57,6 +69,8 @@ while True: ##Esse loop roda para sempre!
         listarProdutos()
     elif (opcao == "3"):
         buscarProduto()
+    elif (opcao == "4"):
+        atualizarEstoque()
 
 
 
