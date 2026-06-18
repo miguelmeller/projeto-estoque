@@ -6,9 +6,8 @@ produtos = [
     [3, "Macarrão", 3, "Prateleira 03"]
 ]
 
-
-
 proximoId = 4
+
 ## Definir funções:
 
 def registrarProdutos():
@@ -23,6 +22,7 @@ def registrarProdutos():
     proximoId = proximoId + 1
     print("Produto inserido com sucesso!✔️")
 
+    travarMenu()
 
 def listarProdutos():
     ##Lista os produtos registrados
@@ -30,6 +30,8 @@ def listarProdutos():
     for item in produtos: ##Para cada item, ele mostra no formato abaixo e soma no total
         print(f"ID: {item[0]} | {item[1]} | {item[2]} | {item[3]}")
     print("--------------------------------")
+
+    travarMenu()
 
 def buscarProduto():
     ##Busca produtos por ID
@@ -44,6 +46,8 @@ def buscarProduto():
     else:
         print(f"O produto é {produtos[posicaoProcurada]}")
         
+    travarMenu()
+
 def atualizarEstoque():
     idProduto = int(input("Digite o ID do produto: "))
     posicaoProcurada = -1
@@ -57,6 +61,12 @@ def atualizarEstoque():
     print("Nova quantidade atualizada com sucesso!")
     print(f"{produtos[posicaoProcurada]}")
     
+    travarMenu()
+
+##Criar uma função para pausar o código entre as interações do usuario
+def travarMenu():
+
+    input("\nPressione <ENTER> para continuar...")
 ##Criar um menu
 
 while True: ##Esse loop roda para sempre!
@@ -71,6 +81,7 @@ while True: ##Esse loop roda para sempre!
         buscarProduto()
     elif (opcao == "4"):
         atualizarEstoque()
+
 
 
 
