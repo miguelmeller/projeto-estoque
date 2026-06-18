@@ -1,3 +1,5 @@
+##Tive ajuda do caio e do dias
+
 ##Definir as varíaveis
 ## id, nome, quantidade, localização 
 produtos = [
@@ -49,6 +51,7 @@ def buscarProduto():
     travarMenu()
 
 def atualizarEstoque():
+    ##Essa função atualiza a quantidade de produtos
     idProduto = int(input("Digite o ID do produto: "))
     posicaoProcurada = -1
     for i in range(len(produtos)):
@@ -57,36 +60,46 @@ def atualizarEstoque():
 
     print(f"Produto atualizado {produtos[posicaoProcurada]}")
     novaQuantidade= int(input(f"Qual a nova quantidade do produto?: "))
-    produtos[posicaoProcurada][2] = novaQuantidade ## Muda a quantidade do produto desejado
+    produtos[posicaoProcurada][2] = novaQuantidade ## Muda a quantidade do produto
     print("Quantidade atualizada!✔️")
     print(f"{produtos[posicaoProcurada]}")
     
     travarMenu()
 
 def excluirProduto():
+    ##Essa função faz excluir algum item escolhido
     itemProcurado = int(input("Digite o ID do item para excluir: "))
     linhaProcurada = -1
 
-
     for i in range(len(produtos)): ##Varre linha a linha da matriz
-        if (produtos [i][0] == itemProcurado): ##Verifica se a posição do nome é igual ao nome procurado
+        if (produtos [i][0] == itemProcurado): ##Verifica se a posição do produto é igual ao produto procurado
             linhaProcurada = i
-    print(f"O item procurado está na linha {linhaProcurada}")
 
-    print("\nItem selecionado excluido.✔️ ")
+    print("\nItem selecionado excluido.✔️🗑️ ")
     produtos.pop(linhaProcurada)
     
+    travarMenu()
     
-##Criar uma função para pausar o código entre as interações do usuario
-def travarMenu():
+def produtosEsgotando():
+    ##Essa função mostra os produtos abaixo de 5 para repor
+    for i in range(len(produtos)):
+        if produtos[i][2] < 5:
+            print("Atenção!!")
+            print("Os produtos abaixo estão abaixo de 5: ")
+            print(produtos[i])
+            print("Abasteça o estoque! ")
 
+    travarMenu()
+
+def travarMenu():
+##Essa função trava o código após usar alguma opção
     input("\nPressione <ENTER> para continuar...")
 
 ##Criar um menu
 
 while True: ##Esse loop roda para sempre!
     print("\nPor favor selecione uma opção: ")
-    print("\n1- Novo produto | 2- Listar produtos | 3- Buscar por ID | 4- Atualizar estoque | 5- Excluir produto | 6- Sair")
+    print("\n1- Novo produto | 2- Listar produtos | 3- Buscar por ID | 4- Atualizar estoque | 5- Excluir produto | 6- Produtos esgotando | 7- Sair")
     opcao = input("Escolha: ")
     if (opcao == "1"):
         registrarProdutos()
@@ -99,6 +112,8 @@ while True: ##Esse loop roda para sempre!
     elif(opcao == "5"):
         excluirProduto()
     elif (opcao == "6"):
+        produtosEsgotando()
+    elif (opcao == "7"):
         print("Sistema encerrado. Volte sempre!")
         break
     else:
