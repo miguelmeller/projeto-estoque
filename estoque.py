@@ -22,6 +22,7 @@ def listarProdutos():
     print(f"Produtos disponíveis: {produto}")
     print("--------------------------------")
 
+def 
 ##Criar um menu
 
 while True: ##Esse loop roda para sempre!
