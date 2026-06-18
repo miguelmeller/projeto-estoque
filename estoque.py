@@ -4,12 +4,11 @@ produto = [
     [1, "Pão de forma", 5, "Prateleira 01"],
     [2, "Bolacha", 4, "Prateleira 02"],
     [3, "Macarrão", 3, "Prateleira 03"]
-
 ]
 
 
 
-proximoId = 1
+proximoId = 4
 ## Definir funções:
 
 def registrarProdutos():
@@ -20,7 +19,7 @@ def registrarProdutos():
     quantidade = input("Digite  a quantidade: ")
     localizacao = input("Digite a localização: ")
     
-    produto.append([novoProduto, quantidade, localizacao])
+    produto.append([proximoId, novoProduto, quantidade, localizacao])
     proximoId = proximoId + 1
     print("Produto inserido com sucesso!")
 
@@ -30,7 +29,7 @@ def listarProdutos():
     print("\n----- PRODUTOS LISTADOS -----")
     #print(f"Produtos disponíveis: {produto}")
     for item in produto: ##Para cada item, ele mostra no formato abaixo e soma no total
-        print(f"ID: {item[0]} | {item[1]} | {item[2]} ")
+        print(f"ID: {item[0]} | {item[1]} | {item[2]} | {item[3]}")
     print("--------------------------------")
 
 
