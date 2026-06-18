@@ -119,10 +119,3 @@ while True: ##Esse loop roda para sempre!
     else:
         print("Opcão inválida! Escolha outra.")
   
-
-
-
-
-    
-
-
