@@ -86,7 +86,7 @@ def travarMenu():
 
 while True: ##Esse loop roda para sempre!
     print("\nPor favor selecione uma opção: ")
-    print("\n1- Novo produto | 2- Listar produtos | 3- Buscar por ID | 4- Atualizar estoque | 5- Excluir Produto")
+    print("\n1- Novo produto | 2- Listar produtos | 3- Buscar por ID | 4- Atualizar estoque | 5- Excluir produto | 6- Sair")
     opcao = input("Escolha: ")
     if (opcao == "1"):
         registrarProdutos()
@@ -98,6 +98,11 @@ while True: ##Esse loop roda para sempre!
         atualizarEstoque()
     elif(opcao == "5"):
         excluirProduto()
+    elif (opcao == "6"):
+        print("Sistema encerrado. Volte sempre!")
+        break
+    else:
+        print("Opcão inválida! Escolha outra.")
   
 
 
